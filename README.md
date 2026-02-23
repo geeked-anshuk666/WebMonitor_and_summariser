@@ -108,6 +108,19 @@ src/
 
 Or use the `render.yaml` for one-click deploy.
 
+## What is Done
+- Full CRUD for monitored links (max 8)
+- Automated check orchestration (Fetch -> Diff -> AI Summary)
+- High-precision LLM grounding rules
+- Multi-stage Docker setup and Render Blueprint
+- System status monitoring with real-time latency
+
+## What is Not Done
+- **Email/SMS Notifications**: Currently, changes are only visible in the dashboard.
+- **Authentication**: The dashboard is currently public; multi-user support with login is not implemented.
+- **Advanced Scheduling**: Checks are triggered manually or via basic cron; complex cron scheduling (e.g., "every Monday at 9 AM") is not built into the UI.
+- **PDF/Image Diffing**: Only text-based content is supported; visual "screenshot" diffing is an elective future improvement.
+
 ## License
 
 MIT
