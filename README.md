@@ -11,12 +11,12 @@ Track web pages for changes. See visual diffs and AI-generated summaries of what
 
 ## Features
 
-- **URL Dashboard** — Add up to 8 links to monitor
-- **Check Now** — Fetch, diff, and summarize changes in one click
-- **Visual Diff Viewer** — Red/green unified diff with line-by-line coloring
-- **AI Summaries** — LLM-powered change summaries via OpenRouter (using the fixed `openrouter/free` tier)
-- **History** — Last 5 checks per link, auto-pruned
-- **Status Page** — Real-time health of backend, database, and LLM
+- **URL Dashboard** - Add up to 8 links to monitor
+- **Check Now** - Fetch, diff, and summarize changes in one click
+- **Visual Diff Viewer** - Red/green unified diff with line-by-line coloring
+- **AI Summaries** - LLM-powered change summaries via OpenRouter (using the fixed `openrouter/free` tier)
+- **History** - Last 5 checks per link, auto-pruned
+- **Status Page** - Real-time health of backend, database, and LLM
 
 ## Quick Start
 
@@ -56,11 +56,11 @@ Open [http://localhost:3000](http://localhost:3000).
 src/
 ├── app/
 │   ├── api/
-│   │   ├── check/        POST — run check (fetch → diff → summarize)
-│   │   ├── history/[id]  GET  — last 5 checks for a link
-│   │   ├── links/        GET/POST — list/add links
-│   │   ├── links/[id]    DELETE   — remove link
-│   │   └── status/       GET  — health check
+│   │   ├── check/        POST - run check (fetch -> diff -> summarize)
+│   │   ├── history/[id]  GET  - last 5 checks for a link
+│   │   ├── links/        GET/POST - list/add links
+│   │   ├── links/[id]    DELETE   - remove link
+│   │   └── status/       GET  - health check
 │   ├── monitor/[id]/     Detail page (diff + history)
 │   ├── status/           Status page (3 health cards)
 │   ├── layout.tsx        Root layout + nav
