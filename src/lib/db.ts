@@ -7,7 +7,7 @@ const globalForPrisma = globalThis as unknown as {
 
 console.log("Prisma Engine Type Env:", process.env.PRISMA_CLIENT_ENGINE_TYPE);
 
-// Prisma 7 requires a non-empty options object in some environments
+// Prisma 6 initialization with singleton pattern
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({

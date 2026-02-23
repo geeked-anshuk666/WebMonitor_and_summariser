@@ -37,5 +37,5 @@ The LLM is constrained to:
 This project was developed with AI assistance (Antigravity by Google DeepMind). The AI helped with:
 - Architecture planning and implementation plan
 - Code generation for all backend and frontend files
-- TypeScript type resolution and Prisma 7 compatibility fixes
+- TypeScript type resolution and Prisma 6 compatibility fixes
 - Build verification and debugging
