@@ -2,6 +2,8 @@
 
 Track web pages for changes. See visual diffs and AI-generated summaries of what changed.
 
+**🌐 Live Demo**: [Deploying to Render...](https://web-monitor.onrender.com) (Placeholder)
+
 ![Stack](https://img.shields.io/badge/Next.js%2016-black?logo=nextdotjs)
 ![Prisma 6](https://img.shields.io/badge/Prisma%206-2D3748?logo=prisma)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
@@ -28,8 +30,8 @@ Track web pages for changes. See visual diffs and AI-generated summaries of what
 
 ```bash
 # Clone
-git clone https://github.com/YOUR_USERNAME/web-monitor.git
-cd web-monitor
+git clone https://github.com/geeked-anshuk666/WebMonitor_and_summariser.git
+cd WebMonitor_and_summariser
 
 # Install
 npm install
