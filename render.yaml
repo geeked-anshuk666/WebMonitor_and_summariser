@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: web-monitor
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: web-monitor-db
+          property: connectionString
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
+
+databases:
+  - name: web-monitor-db
+    plan: free
+    databaseName: webmonitor
