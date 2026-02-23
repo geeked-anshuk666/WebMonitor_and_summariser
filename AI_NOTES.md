@@ -39,3 +39,11 @@ This project was developed with AI assistance (Antigravity by Google DeepMind). 
 - Code generation for all backend and frontend files
 - TypeScript type resolution and Prisma 6 compatibility fixes
 - Build verification and debugging
+
+## Human Verification
+
+The following items were checked and verified manually:
+- **SSRF Protection**: Verified that internal IP ranges (127.0.0.1, 192.168.x.x) and non-HTTP protocols are correctly blocked.
+- **Diff Accuracy**: Manually modified test pages to verify that the unified diff correctly reflects added and removed lines.
+- **AI Grounding**: Verified that the LLM summaries strictly follow the system prompt and do not hallucinate layout changes.
+- **Build & Docker**: Verified that the Docker container builds successfully and migrations run on startup via the `start.sh` script.
