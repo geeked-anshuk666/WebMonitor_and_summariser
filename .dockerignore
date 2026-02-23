@@ -1,0 +1,8 @@
+.git
+.next
+node_modules
+.env
+*.md
+.agent
+Agent_kit
+Meta_files
