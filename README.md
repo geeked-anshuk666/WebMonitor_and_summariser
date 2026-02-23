@@ -3,7 +3,7 @@
 Track web pages for changes. See visual diffs and AI-generated summaries of what changed.
 
 ![Stack](https://img.shields.io/badge/Next.js%2016-black?logo=nextdotjs)
-![Prisma 7](https://img.shields.io/badge/Prisma%207-2D3748?logo=prisma)
+![Prisma 6](https://img.shields.io/badge/Prisma%206-2D3748?logo=prisma)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
 ![Render](https://img.shields.io/badge/Render-46E3B7?logo=render&logoColor=white)
 
@@ -12,7 +12,7 @@ Track web pages for changes. See visual diffs and AI-generated summaries of what
 - **URL Dashboard** — Add up to 8 links to monitor
 - **Check Now** — Fetch, diff, and summarize changes in one click
 - **Visual Diff Viewer** — Red/green unified diff with line-by-line coloring
-- **AI Summaries** — LLM-powered change summaries via OpenRouter (Llama 3.1 8B free)
+- **AI Summaries** — LLM-powered change summaries via OpenRouter (using the fixed `openrouter/free` tier)
 - **History** — Last 5 checks per link, auto-pruned
 - **Status Page** — Real-time health of backend, database, and LLM
 
@@ -73,7 +73,7 @@ src/
 │   ├── differ.ts         SHA256 hash + unified diff
 │   ├── fetcher.ts        URL fetch + SSRF protection
 │   └── summarize.ts      OpenRouter LLM integration
-└── generated/prisma/     Prisma 7 generated client
+└── prisma/              Prisma schema and migrations
 ```
 
 ## Tech Stack
@@ -82,8 +82,8 @@ src/
 |-------|-----------|
 | Framework | Next.js 16 (App Router, TypeScript) |
 | Styling | Tailwind CSS + CSS custom properties |
-| Database | PostgreSQL via Prisma 7 |
-| LLM | OpenRouter (Llama 3.1 8B Instruct free) |
+| Database | PostgreSQL via Prisma 6 |
+| LLM | OpenRouter (`openrouter/free`) |
 | Fetching | Axios + @mozilla/readability + jsdom |
 | Diffing | `diff` npm package (unified diff) |
 | Deploy | Render (Web Service + Postgres) |

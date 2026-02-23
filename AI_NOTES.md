@@ -2,7 +2,7 @@
 
 ## LLM Integration
 
-This project uses **OpenRouter** with the **meta-llama/llama-3.1-8b-instruct:free** model for generating change summaries.
+This project uses **OpenRouter** with the **openrouter/free** router, which automatically selects the best available free model (e.g., Llama 3 or Gemma 2) for generating change summaries.
 
 ### How It Works
 
@@ -14,10 +14,11 @@ This project uses **OpenRouter** with the **meta-llama/llama-3.1-8b-instruct:fre
 ### System Prompt
 
 The LLM is constrained to:
-- Summarize what changed (not speculate about why)
-- Cite exact snippets using quotes
-- Identify when only whitespace/formatting changed
-- Keep summaries to 2-4 sentences
+- ONLY summarize what is explicitly added (+) or removed (-) in the text.
+- DO NOT mention design, layout, or "glassmorphism" unless style is explicitly changed in the text.
+- AVOID hallucinations about file names or directory structures.
+- Describe technical metadata (like SEO tags) objectively as "metadata updates".
+- Keep summaries to 2-4 sentences.
 
 ### Retry Logic
 
