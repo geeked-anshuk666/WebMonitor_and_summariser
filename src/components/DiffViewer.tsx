@@ -1,3 +1,10 @@
+/**
+ * DIFF VIEWER COMPONENT
+ * 
+ * Renders a unified diff string with syntax highlighting.
+ * Red background for removals (-), green for additions (+), and gray for headers (@@).
+ */
+
 "use client";
 
 import React from "react";
@@ -17,6 +24,9 @@ export default function DiffViewer({ diff }: DiffViewerProps) {
 
     const lines = diff.split("\n");
 
+    /**
+     * Copies the raw unified diff to the clipboard.
+     */
     const handleCopy = () => {
         navigator.clipboard.writeText(diff);
     };
@@ -46,6 +56,7 @@ export default function DiffViewer({ diff }: DiffViewerProps) {
                 </button>
             </div>
             <div style={{ overflowX: "auto", maxHeight: "500px", overflowY: "auto" }}>
+                {/* Iterate through lines and apply conditional styling based on diff markers */}
                 {lines.map((line, i) => {
                     let className = "diff-line diff-context";
                     if (line.startsWith("@@")) {

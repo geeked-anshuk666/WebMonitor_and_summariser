@@ -1,3 +1,10 @@
+/**
+ * API: /api/links
+ * 
+ * Manages the collection of monitored URLs.
+ * Handles listing links with latest status and adding new ones with validation.
+ */
+
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { validateUrl } from "@/lib/fetcher";
@@ -7,7 +14,10 @@ export const dynamic = "force-dynamic";
 const MAX_LINKS = 8;
 
 /**
- * GET /api/links — Return all monitored links with their latest check status.
+ * GET /api/links
+ * 
+ * Returns all links sorted by creation date.
+ * Includes the single latest check status for each link (to show on dashboard cards).
  */
 export async function GET() {
     try {
@@ -54,8 +64,12 @@ export async function GET() {
 }
 
 /**
- * POST /api/links — Add a new monitored link.
- * Body: { url: string, label?: string, tags?: string }
+ * POST /api/links
+ * 
+ * 1. Normalizes the incoming URL
+ * 2. Validates safety (SSRF checks)
+ * 3. Enforces a maximum limit of 8 links per user/instance
+ * 4. Checks for duplicates before creating
  */
 export async function POST(request: NextRequest) {
     try {

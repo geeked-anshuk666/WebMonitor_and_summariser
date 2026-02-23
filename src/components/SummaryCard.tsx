@@ -1,3 +1,10 @@
+/**
+ * SUMMARY CARD COMPONENT
+ * 
+ * Displays the AI-generated summary on the link detail page.
+ * Includes a "No changes detected" state when the check history is empty.
+ */
+
 "use client";
 
 import React from "react";
@@ -8,6 +15,7 @@ interface SummaryCardProps {
 }
 
 export default function SummaryCard({ summary, hasChanges }: SummaryCardProps) {
+    {/* Empty State: Shown when no summary exists or no changes were detected */ }
     if (!hasChanges && !summary) {
         return (
             <div

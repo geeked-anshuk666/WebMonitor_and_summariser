@@ -1,3 +1,10 @@
+/**
+ * LINK CARD COMPONENT
+ * 
+ * Displays a summary of a monitored URL on the dashboard.
+ * Includes status badges, last-checked relative time, and action buttons (Check, View, Delete).
+ */
+
 "use client";
 
 import React from "react";
@@ -19,6 +26,9 @@ interface LinkCardProps {
     onDelete: (id: string) => void;
 }
 
+/**
+ * Helper to format a date into a human-readable relative time string.
+ */
 function timeAgo(dateString: string): string {
     const date = new Date(dateString);
     const now = new Date();
@@ -30,6 +40,9 @@ function timeAgo(dateString: string): string {
     return `${Math.floor(seconds / 86400)}d ago`;
 }
 
+/**
+ * Logic to determine the badge text and style based on the latest check status.
+ */
 function getStatusBadge(
     latestCheck: LinkCardProps["latestCheck"]
 ): { text: string; className: string } {

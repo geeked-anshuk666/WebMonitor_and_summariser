@@ -1,3 +1,14 @@
+/**
+ * DASHBOARD PAGE (Home)
+ * 
+ * The main interface for managing monitored URLs.
+ * Features:
+ * - Add new links with validation
+ * - List all links with latest status badges
+ * - Trigger manual checks (Single or Bulk)
+ * - Toast notifications for user feedback
+ */
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -58,6 +69,9 @@ export default function HomePage() {
     fetchLinks();
   }, [fetchLinks]);
 
+  /**
+   * Adds a new link to the database via API.
+   */
   const handleAddLink = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormError(null);
@@ -122,6 +136,9 @@ export default function HomePage() {
     }
   };
 
+  /**
+   * Triggers a check for all monitored links simultaneously.
+   */
   const handleCheckAll = async () => {
     setCheckingAll(true);
     const allIds = new Set(links.map((l) => l.id));
@@ -341,8 +358,8 @@ export default function HomePage() {
             color:
               toast.type === "success" ? "var(--success)" : "var(--danger)",
             border: `1px solid ${toast.type === "success"
-                ? "rgba(34, 197, 94, 0.3)"
-                : "rgba(239, 68, 68, 0.3)"
+              ? "rgba(34, 197, 94, 0.3)"
+              : "rgba(239, 68, 68, 0.3)"
               }`,
           }}
         >

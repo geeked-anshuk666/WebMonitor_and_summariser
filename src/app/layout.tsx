@@ -1,3 +1,10 @@
+/**
+ * ROOT LAYOUT
+ * 
+ * Provides the global structure, navigation, and theme styles for all pages.
+ * Includes Inter and JetBrains Mono fonts and the global navigation bar.
+ */
+
 import type { Metadata } from "next";
 import "./globals.css";
 

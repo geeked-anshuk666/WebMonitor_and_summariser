@@ -1,3 +1,10 @@
+/**
+ * API: /api/check
+ * 
+ * The core orchestration endpoint for running webpage checks.
+ * This route triggers the fetch -> diff -> summarize -> notify pipeline.
+ */
+
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { fetchPageText } from "@/lib/fetcher";
@@ -24,6 +31,14 @@ interface CheckResult {
  * 3. If changed: compute diff → LLM summarize
  * 4. Persist check record
  * 5. Prune old checks (keep latest 5)
+ */
+/**
+ * Orchestrates the check for a single link.
+ * 1. Fetch: Downloads latest page content safely (SSRF protection in fetcher)
+ * 2. Hash: Compares content SHA256 with last check to detect changes
+ * 3. Diff: Generates unified diff if hashes don't match
+ * 4. AI: Calls OpenRouter for a high-precision summary of the diff
+ * 5. Storage: Saves Check record and prunes old ones (max 5)
  */
 async function runCheck(linkId: string): Promise<CheckResult> {
     const link = await prisma.link.findUnique({ where: { id: linkId } });
@@ -138,8 +153,11 @@ async function runCheck(linkId: string): Promise<CheckResult> {
 }
 
 /**
- * POST /api/check — Run a check for one link (or all links).
- * Body: { linkId?: string }
+ * POST /api/check
+ * 
+ * Supports two modes:
+ * - Single: Pass { linkId: '...' } to check one specific URL.
+ * - Bulk: Call with empty body to check all monitored links.
  */
 export async function POST(request: NextRequest) {
     try {

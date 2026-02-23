@@ -1,3 +1,10 @@
+/**
+ * STATUS INDICATOR COMPONENT
+ * 
+ * Renders a service health card with a pulse animation and latency info.
+ * Used on the Status Page for Backend, Database, and LLM monitoring.
+ */
+
 "use client";
 
 import React from "react";
@@ -25,6 +32,7 @@ export default function StatusIndicator({
                 gap: "16px",
             }}
         >
+            {/* Animated pulse dot (green for healthy, red for down) */}
             <div
                 className={`pulse-dot ${ok ? "pulse-dot-green" : "pulse-dot-red"}`}
             />

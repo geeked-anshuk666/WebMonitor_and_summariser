@@ -1,3 +1,10 @@
+/**
+ * DIFF ENGINE
+ * 
+ * Provides utilities for comparing two versions of page text.
+ * Uses SHA256 for quick equality checks and "diff" package for unified patch generation.
+ */
+
 import { createHash } from "crypto";
 import { createPatch } from "diff";
 
@@ -18,6 +25,8 @@ export function computeHash(text: string): string {
 /**
  * Computes a unified diff between old and new text.
  * Returns the diff string + stats (added/removed line counts).
+ * 
+ * Used to show structural changes in the UI and as input for the LLM.
  */
 export function computeDiff(oldText: string, newText: string): DiffResult {
     const unified = createPatch("content", oldText, newText, "previous", "current", {
@@ -43,6 +52,7 @@ export function computeDiff(oldText: string, newText: string): DiffResult {
 
 /**
  * Generates a short snippet (first ~200 chars) from the diff showing what changed.
+ * This is used for quick previews in the dashboard list view.
  */
 export function extractSnippet(diff: string, maxLength: number = 200): string {
     const lines = diff.split("\n");

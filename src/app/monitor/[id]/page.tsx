@@ -1,3 +1,14 @@
+/**
+ * MONITOR DETAIL PAGE
+ * 
+ * Dynamic route to view detailed check history and latest diffs for a specific URL.
+ * Features:
+ * - Tabbed view: Latest Changes vs. Full History
+ * - AI Summary display
+ * - Unified Diff viewer
+ * - JSON Export functionality
+ */
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -76,6 +87,9 @@ export default function MonitorPage() {
         }
     };
 
+    /**
+     * Downloads the current monitor data and history as a JSON file.
+     */
     const handleExportJson = () => {
         const blob = new Blob([JSON.stringify({ link, checks }, null, 2)], {
             type: "application/json",

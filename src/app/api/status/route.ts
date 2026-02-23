@@ -1,3 +1,10 @@
+/**
+ * API: /api/status
+ * 
+ * Aggregated health check endpoint for the entire system.
+ * Benchmarks latency for the database and the OpenRouter AI connection.
+ */
+
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { checkLlmHealth } from "@/lib/summarize";

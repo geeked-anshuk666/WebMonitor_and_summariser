@@ -1,3 +1,10 @@
+/**
+ * API: /api/links/[id]
+ * 
+ * Handles management of a specific monitored link record.
+ * Primary use: DELETE request to stop monitoring and purge history.
+ */
+
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 

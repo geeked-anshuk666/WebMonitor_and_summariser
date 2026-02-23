@@ -1,3 +1,10 @@
+/**
+ * API: /api/history/[id]
+ * 
+ * Retrieves the check history for a specific link.
+ * Used to populate the "History" tab on the monitor detail page.
+ */
+
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 

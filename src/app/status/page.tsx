@@ -1,3 +1,10 @@
+/**
+ * STATUS PAGE
+ * 
+ * Provides real-time health monitoring of system services.
+ * Auto-refreshes every 30 seconds to show Database and LLM latency.
+ */
+
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
@@ -14,6 +21,9 @@ export default function StatusPage() {
     const [loading, setLoading] = useState(true);
     const [lastChecked, setLastChecked] = useState<Date | null>(null);
 
+    /**
+     * Fetches current health status from /api/status.
+     */
     const fetchStatus = useCallback(async () => {
         setLoading(true);
         try {

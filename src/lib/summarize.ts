@@ -1,5 +1,17 @@
+/**
+ * AI SUMMARIZATION SERVICE
+ * 
+ * Interfaces with OpenRouter to generate concise, human-readable summaries of diffs.
+ * Includes strict grounding rules, truncation, and reliable retry logic.
+ */
+
 import OpenAI from "openai";
 
+/**
+ * The System Prompt enforces high-precision grounding.
+ * It forbids the AI from hallucinating design styles or file structures
+ * not present in the text diff.
+ */
 const SYSTEM_PROMPT = `You are a high-precision webpage change analyst. 
 Your task is to summarize the changes in a provided unified diff.
 
@@ -53,6 +65,11 @@ function truncateDiff(diff: string): string {
 /**
  * Summarizes a diff using the OpenRouter LLM.
  * Retries up to 3 times with exponential backoff on failure.
+ * 
+ * 1. Checks for API key
+ * 2. Truncates diff to fit context window
+ * 3. Sends high-precision prompt to OpenRouter
+ * 4. Normalizes output
  */
 export async function summarizeChanges(
     diff: string,

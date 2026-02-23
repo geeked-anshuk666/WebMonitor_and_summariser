@@ -1,7 +1,17 @@
+/**
+ * WEB CONTENT FETCHER
+ * 
+ * Handles secure fetching of web pages, SSRF protection, and readable text extraction.
+ */
+
 import axios from "axios";
 import { JSDOM } from "jsdom";
 import { Readability } from "@mozilla/readability";
 
+/**
+ * Security: Patterns for IP ranges that must be blocked to prevent SSRF 
+ * (Server-Side Request Forgery) attacks on the internal network.
+ */
 const PRIVATE_IP_PATTERNS = [
     /^127\./,
     /^10\./,
@@ -56,6 +66,13 @@ export function validateUrl(urlString: string): URL {
 /**
  * Fetches a web page and extracts its readable text content.
  * Uses Readability to strip nav, ads, and boilerplate.
+ */
+/**
+ * Main entry point for fetching a page.
+ * 1. Validates URL safety
+ * 2. Fetches HTML with a custom User-Agent and timeout
+ * 3. Uses Readability to isolate main content
+ * 4. Normalizes whitespace to prepare for diffing
  */
 export async function fetchPageText(urlString: string): Promise<FetchResult> {
     const url = validateUrl(urlString);
