@@ -80,6 +80,10 @@ export async function fetchPageText(urlString: string): Promise<FetchResult> {
     const response = await axios.get(url.toString(), {
         timeout: 15000,
         maxRedirects: 3,
+        params: {
+            // Dynamically bypass aggressive edge caching (e.g. Github CDN)
+            _cb: Date.now(),
+        },
         headers: {
             "User-Agent":
                 "Mozilla/5.0 (compatible; WebMonitor/1.0; +https://github.com/web-monitor) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
