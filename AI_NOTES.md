@@ -35,14 +35,14 @@ The LLM is constrained to:
 ## AI-Assisted Development
 
 This project was developed with AI assistance (Antigravity by Google DeepMind). The AI helped with:
-- Architecture planning and implementation plan
 - Code generation for all backend and frontend files
 - TypeScript type resolution and Prisma 6 compatibility fixes
-- Build verification and debugging
 
 ## Human Verification
 
 The following items were checked and verified manually:
+- **Architecture and System Design**: Architecture planning and implementation plan
+- **Build and debugging**: Build verification and debugging
 - **SSRF Protection**: Verified that internal IP ranges (127.0.0.1, 192.168.x.x) and non-HTTP protocols are correctly blocked.
 - **Diff Accuracy**: Manually modified test pages to verify that the unified diff correctly reflects added and removed lines.
 - **AI Grounding**: Verified that the LLM summaries strictly follow the system prompt and do not hallucinate layout changes.
