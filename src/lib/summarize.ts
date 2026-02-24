@@ -23,9 +23,10 @@ RULES:
 5. Be concise: 2-4 sentences.
 6. Use plain, professional language.`;
 
-const MAX_DIFF_CHARS = 24000; // ~8k tokens at ~3 chars/token
+const MAX_DIFF_CHARS = 12000; // ~4k tokens at ~3 chars/token
 const MAX_RETRIES = 3;
 const BASE_DELAY_MS = 1000;
+const LLM_TIMEOUT_MS = 15000;
 
 /**
  * Creates an OpenAI client pointed at OpenRouter's API.
@@ -93,7 +94,7 @@ export async function summarizeChanges(
                 ],
                 temperature: 0.3,
                 max_tokens: 300,
-            });
+            }, { timeout: LLM_TIMEOUT_MS });
 
             const content = response.choices?.[0]?.message?.content;
             if (!content) {
