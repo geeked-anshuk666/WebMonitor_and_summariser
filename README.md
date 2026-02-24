@@ -2,7 +2,7 @@
 
 Track web pages for changes. See visual diffs and AI-generated summaries of what changed.
 
-**🌐 Live Demo**: [Deployed on Render...]([https://web-monitor.onrender.com](https://web-monitor-rq5z.onrender.com/))
+**🌐 Live Demo**: [https://web-monitor.onrender.com](https://web-monitor-rq5z.onrender.com/)
 
 ![Stack](https://img.shields.io/badge/Next.js%2016-black?logo=nextdotjs)
 ![Prisma 6](https://img.shields.io/badge/Prisma%206-2D3748?logo=prisma)
