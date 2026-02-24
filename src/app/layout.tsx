@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Web Monitor — Track Page Changes",
+  title: "Web Monitor - Track Page Changes",
   description:
     "Monitor web pages for changes. See visual diffs and AI-generated summaries of what changed.",
 };
